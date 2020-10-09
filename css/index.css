@@ -134,3 +134,15 @@ button:hover{
 .artist img{
     width:100%;
 }
+
+/* @media only screen and(max-width: 980px) {
+    body{
+        background-color: black;
+    }
+    header{
+        background-color: black;
+    }
+} */
+/* my media query is literally doing nothing, so 
+I cant do any CSS.... So I guess we are going to skip to the JavaScript... */
+

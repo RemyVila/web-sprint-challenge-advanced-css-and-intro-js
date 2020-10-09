@@ -207,12 +207,16 @@ export const artists = [
 Practice accessing data above by console.log-ing following items:
 
 (1) Name of the first artist (0th index) in the array
+
 (2) Bio of the third artist (2nd index) in the array */
 
-
+console.log(artists[0].name);
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 2: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
 There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is currently Vincent Van Dough. Use an array method to fix this issue and console.log() to check your work. */
+
+artists[10].name = "Vincent Van Gogh";
+console.log(artists[10]);
 
 
 
@@ -220,24 +224,40 @@ There is a typo in your dataset 😱 The 9th artist, Vincent Van Gogh is current
 Create a function called `getArtistByIndex` that takes two arguments:
  *     (1) artists array
  *     (2) a number which is the desired index in the array.
- * getArtistByIndex returns a string in the format `The artist at index {id} is {name}.`
+ * getArtistByIndex
+ * 
+ *  returns
+ * 
+ *  a string in the format 
+ * 
+ * `The artist at index {id} is {name}.`
  * 
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
-function getArtistByIndex(/*Your Code Here*/) {
-  /*Your Code Here*/
+function getArtistByIndex(array, index) {
+  return `the artist at index ${index} is ${array[index].name}`
 }
-
+console.log(getArtistByIndex(artists, 0));
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 4: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
-Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
+Create a function called get20s() that takes data as an argument and returns an array with names of artists who were
+born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died
+in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
 
-function get20s(/*Your Code Here*/){
-  /*Your Code Here*/
+
+function get20s(array){
+  const bartists = [];
+
+  for(let i = 0; i < array.length; i++){     
+    if(array[i].years.includes("19") && array[i].years.includes("18")!= true){      
+    bartists.push(array[i].name)
+    }
+    }
+    return bartists;
 }
-
+get20s(artists);
 
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 5: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -251,10 +271,11 @@ Create a function called `removeArtist` that takes two arguments:
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
-function removeArtist(/*Your Code Here*/) {
-  /*Your Code Here*/
-}
-   
+          function removeArtist(array, index) {
+            array.splice(index,1);
+            console.log(array.length);
+            return array.length;
+          }
 
 /**
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 6: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -270,10 +291,12 @@ bio: Add 1-2 sentences (or use lorem ipsum)
 
 At the end, this function should return the new array with information added"*/
 
-function addArtist(/*Your Code Here*/){
-  /*Your Code Here*/
+function addArtist(array){
+  array.push({id: 20, name:"Remy Boii", years:"1997-2020", nationality:"Cuban", bio:"A real one. A true wizard of the light."});
+  array.push({id: 20, name:"Remy Boii", years:"1997-2020", nationality:"Cuban", bio:"A real one. A true wizard of the light."});
+  return array;
   }
-
+addArtist(artists);
   
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -285,8 +308,14 @@ and returns an array with names of artists who painted more than 100 paintings.
 
 For example lotsOfArt(artists); will return ["Amedeo Modigliani", "Rene Magritte", ..."Albrecht Dürer"]*/
 
-function lotsOfArt(/*Your Code Here*/){
-  /*Your Code Here*/
+function lotsOfArt(array){
+  let muchArt = [];
+  for(let i = 0; i < array.length; i++){
+    if(array[i].paintings >= 100){
+      muchArt.push(array[i].name);
+    }
+  }
+  return muchArt;
 }
 
 
